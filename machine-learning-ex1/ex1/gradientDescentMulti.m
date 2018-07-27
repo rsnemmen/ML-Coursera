@@ -18,11 +18,18 @@ for iter = 1:num_iters
     %
 
 
+    % hypothesis, col. vector
+    h=zeros(size(X,1),1);
 
+    for i=1:size(X,2),
+        h=h+theta(i)*X(:,i);
+    end;
 
-
-
-
+    % be careful to step all theta components simultaneously
+    for i=1:size(X,2),
+        sumi=(h-y).*X(:,i);
+        theta(i)=theta(i)-alpha/m*sum(sumi);
+    end;
 
 
 

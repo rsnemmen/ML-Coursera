@@ -14,7 +14,21 @@ J = 0;
 %               You should set J to the cost.
 
 
+% Input arrays
+% - X: m by n
+% - y, theta: m
 
+% hypothesis function 
+h=zeros(size(X,1),1);
+
+for i=1:size(X,2),
+	% hypothesis, col. vector
+	h=h+theta(i)*X(:,i);
+end;
+
+residual=(h-y).^2;
+
+J=1./(2.*m)*sum(residual);
 
 
 % =========================================================================

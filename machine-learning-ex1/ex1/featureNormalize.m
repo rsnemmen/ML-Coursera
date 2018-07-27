@@ -28,6 +28,24 @@ sigma = zeros(1, size(X, 2));
 
 
 
+% the way they wrote the code is complicated... by making the
+% dimension of mu not matching the actual dimensions of X
+
+% mean
+% notice that I am taking care to remove the contribution of the
+% first column of 1s
+for i=1:size(X, 2),
+	% extract column by column
+	col=X(:,i); 
+
+	mu(i)=mean(col);
+	sigma(i)=std(col);
+
+	% normalization
+	X_norm(:,i)=(col-mu(i))/sigma(i);
+end;
+
+
 
 
 

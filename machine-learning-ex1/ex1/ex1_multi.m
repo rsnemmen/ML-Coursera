@@ -8,7 +8,7 @@
 %  linear regression exercise. 
 %
 %  You will need to complete the following functions in this 
-%  exericse:
+%  exercise:
 %
 %     warmUpExercise.m
 %     plotData.m
