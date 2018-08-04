@@ -12,7 +12,17 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+% identify elements
+i=find(y==1);
+j=find(y==0);
 
+plot(X(i,1),X(i,2),'+');
+legend('Admitted');
+plot(X(j,1),X(j,2),'o');
+legend('Not admitted');
+
+xlabel('Exam 1 score');
+ylabel('Exam 2 score');
 
 
 
