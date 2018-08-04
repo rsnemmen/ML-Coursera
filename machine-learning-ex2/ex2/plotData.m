@@ -21,9 +21,6 @@ legend('Admitted');
 plot(X(j,1),X(j,2),'o');
 legend('Not admitted');
 
-xlabel('Exam 1 score');
-ylabel('Exam 2 score');
-
 
 
 
