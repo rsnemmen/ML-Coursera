@@ -31,6 +31,15 @@ X = [ones(m, 1) X];
 %       
 
 
+% each line of this vector holds theta'*xi for the i-th point
+z=(theta'*X')';
+
+% computes sigmoid for each point
+h=sigmoid(z);
+
+% identifies points for which prediction=1
+i=find(h>=0.5);
+p(i)=1;
 
 
 
