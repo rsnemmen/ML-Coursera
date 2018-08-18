@@ -31,15 +31,16 @@ X = [ones(m, 1) X];
 %       
 
 
-% each line of this vector holds theta'*xi for the i-th point
-z=(theta'*X')';
+% each element in this matrix corresponds to z[i,j] => [i-th example, j-th class]
+z=(all_theta*X')';
 
-% computes sigmoid for each point
+% computes sigmoid 
 h=sigmoid(z);
 
-% identifies points for which prediction=1
-i=find(h>=0.5);
-p(i)=1;
+% identifies class (i vector) which maximizes probability
+[temp, i] = max(h, [], 2)
+
+p=i;
 
 
 
