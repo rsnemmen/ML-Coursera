@@ -21,8 +21,29 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% computes hidden layer
+% =======================
 
+% a1, adding ones to the X data matrix
+a1 = [ones(m, 1) X];
 
+% each element in this matrix corresponds to z[i,j] => [i-th example, j-th class]
+z2=(Theta1*a1')';
+
+% computes sigmoid 
+a2=sigmoid(z2);
+
+% output layer
+% ==============
+
+a2 = [ones(m, 1) a2];
+z3=(Theta2*a2')';
+a3=sigmoid(z3);
+
+% identifies class (i vector) which maximizes probability
+[temp, i] = max(a3, [], 2)
+
+p=i;
 
 
 
