@@ -38,7 +38,7 @@ z=(all_theta*X')';
 h=sigmoid(z);
 
 % identifies class (i vector) which maximizes probability
-[temp, i] = max(h, [], 2)
+[temp, i] = max(h, [], 2);
 
 p=i;
 
