@@ -62,10 +62,8 @@ for i = 1:m,
 	ya=zeros(num_labels,1);
 	ya(y(i))=1;
 
-	for k=1:num_labels,
-		%%%%%%% cost function
-		J=J+1/m*(-ya'*log(h)-(1-ya')*log(1-h));
-	end;
+	% cost function
+	J=J+1/m*(-ya'*log(h)-(1-ya')*log(1-h));
 end;
 
 
