@@ -39,6 +39,37 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 %
+
+% launch and iterate philosophy: first solve the problem, then optimize
+% later
+
+% cost function loop
+for i = 1:m,
+	%%%%%%% computes output h
+
+	% add +1 to input layer
+	a1=[1 X(i,:)];
+
+	a2=sigmoid(Theta1*a1');
+	% add +1 to a2
+	a2=[1; a2];
+
+	% a3=h
+	h=sigmoid(Theta2*a2); 
+
+	%%%%%%% creates 10-dimensional y array
+	% where the only non-zero element is the classification
+	ya=zeros(num_labels,1);
+	ya(y(i))=1;
+
+	for k=1:num_labels,
+		%%%%%%% cost function
+		J=J+1/m*(-ya'*log(h)-(1-ya')*log(1-h));
+	end;
+end;
+
+
+
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
 %         the cost function with respect to Theta1 and Theta2 in Theta1_grad and
