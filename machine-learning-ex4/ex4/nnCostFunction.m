@@ -66,6 +66,8 @@ for i = 1:m,
 	J=J+1/m*(-ya'*log(h)-(1-ya')*log(1-h));
 end;
 
+% add a column of 1s to the X matrix, as directed in the instructions
+X=[ones(m,1) X];
 
 
 % Part 2: Implement the backpropagation algorithm to compute the gradients
@@ -95,8 +97,11 @@ end;
 %               and Theta2_grad from Part 2.
 %
 
+% regularization term
+regterm=lambda/(2*m)*( sumsq(Theta1(:)) + sumsq(Theta2(:)) );
 
-
+J=J+regterm;
+ 
 
 
 
