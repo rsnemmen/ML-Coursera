@@ -111,22 +111,21 @@ Theta2_grad=Theta2_grad/m;
 %               and Theta2_grad from Part 2.
 %
 
-% regularization term
-regterm=lambda/(2*m)*( sumsq(Theta1(:)) + sumsq(Theta2(:)) );
+% temp arrays for removing the bias column
+Theta1t=Theta1(:,2:end);
+Theta2t=Theta2(:,2:end);
+
+% regularization term not including the bias terms
+regterm=lambda/(2*m)*( sumsq(Theta1t(:)) + sumsq(Theta2t(:)) );
 
 % regularized cost function
 J=J+regterm;
  
 % regularized gradients
-%Theta1_grad(:,2:end)=Theta1_grad(:,2:end)+lambda/m*Theta1(:,2:end);
-%Theta2_grad(:,2:end)=Theta2_grad(:,2:end)+lambda/m*Theta2(:,2:end);
-Theta1_grad=Theta1_grad+lambda/m*Theta1;
-Theta2_grad=Theta2_grad+lambda/m*Theta2;
-
-
-
-
-
+%Theta1_grad=Theta1_grad+lambda/m*Theta1;
+%Theta2_grad=Theta2_grad+lambda/m*Theta2;
+Theta1_grad(:,2:end)=Theta1_grad(:,2:end)+lambda/m*Theta1t;
+Theta2_grad(:,2:end)=Theta2_grad(:,2:end)+lambda/m*Theta2t;
 
 
 
