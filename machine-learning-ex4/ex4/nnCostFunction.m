@@ -118,8 +118,10 @@ regterm=lambda/(2*m)*( sumsq(Theta1(:)) + sumsq(Theta2(:)) );
 J=J+regterm;
  
 % regularized gradients
-Theta1_grad(:,2:end)=Theta1_grad(:,2:end)+lambda/m*Theta1(:,2:end);
-Theta2_grad(:,2:end)=Theta2_grad(:,2:end)+lambda/m*Theta2(:,2:end);
+%Theta1_grad(:,2:end)=Theta1_grad(:,2:end)+lambda/m*Theta1(:,2:end);
+%Theta2_grad(:,2:end)=Theta2_grad(:,2:end)+lambda/m*Theta2(:,2:end);
+Theta1_grad=Theta1_grad+lambda/m*Theta1;
+Theta2_grad=Theta2_grad+lambda/m*Theta2;
 
 
 
