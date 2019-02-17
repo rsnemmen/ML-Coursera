@@ -100,6 +100,9 @@ X=[ones(m,1) X];
 Theta1_grad=Theta1_grad/m;
 Theta2_grad=Theta2_grad/m;
 
+
+
+
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
@@ -111,8 +114,12 @@ Theta2_grad=Theta2_grad/m;
 % regularization term
 regterm=lambda/(2*m)*( sumsq(Theta1(:)) + sumsq(Theta2(:)) );
 
+% regularized cost function
 J=J+regterm;
  
+% regularized gradients
+Theta1_grad(:,2:end)=Theta1_grad(:,2:end)+lambda/m*Theta1(:,2:end);
+Theta2_grad(:,2:end)=Theta2_grad(:,2:end)+lambda/m*Theta2(:,2:end);
 
 
 
