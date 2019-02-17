@@ -43,14 +43,15 @@ Theta2_grad = zeros(size(Theta2));
 % launch and iterate philosophy: first solve the problem, then optimize
 % later
 
-% cost function loop
+% cost function loop which will also be used for BP
 for i = 1:m,
 	%%%%%%% computes output h
 
 	% add +1 to input layer
-	a1=[1 X(i,:)];
+	a1=[1; X(i,:)'];
 
-	a2=sigmoid(Theta1*a1');
+	z2=Theta1*a1;
+	a2=sigmoid(z2);
 	% add +1 to a2
 	a2=[1; a2];
 
@@ -64,10 +65,6 @@ for i = 1:m,
 
 	% cost function
 	J=J+1/m*(-ya'*log(h)-(1-ya')*log(1-h));
-end;
-
-% add a column of 1s to the X matrix, as directed in the instructions
-X=[ones(m,1) X];
 
 
 % Part 2: Implement the backpropagation algorithm to compute the gradients
@@ -86,8 +83,22 @@ X=[ones(m,1) X];
 %               first time.
 %
 
+	delta3=h-ya;
 
+	% first part
+	delta2a=Theta2'*delta3;
+	% full calculation, removing bias unit
+	delta2=delta2a(2:end) .* sigmoidGradient(z2);
 
+	Theta1_grad=Theta1_grad+delta2*a1';
+	Theta2_grad=Theta2_grad+delta3*a2';
+end;
+
+% add a column of 1s to the X matrix, as directed in the instructions
+X=[ones(m,1) X];
+
+Theta1_grad=Theta1_grad/m;
+Theta2_grad=Theta2_grad/m;
 
 % Part 3: Implement regularization with the cost function and gradients.
 %
