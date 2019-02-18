@@ -183,7 +183,7 @@ fprintf('\nTraining Neural Network... \n')
 
 %  After you have completed the assignment, change the MaxIter to a larger
 %  value to see how more training helps.
-options = optimset('MaxIter', 50);
+options = optimset('MaxIter', 10);
 
 %  You should also try different values of lambda
 lambda = 1;
@@ -216,7 +216,10 @@ pause;
 
 fprintf('\nVisualizing Neural Network... \n')
 
-displayData(Theta1(:, 2:end));
+[h,weights_arr]=displayData(Theta1(:, 2:end));
+
+% save weights image to disk
+imwrite(weights_arr,"weights.png");
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
