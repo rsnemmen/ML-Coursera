@@ -1,4 +1,4 @@
-iteration  cost  accuracy
+# iteration  cost  accuracy
      1   3.305642e+00   10.180000
      2   3.246980e+00   11.960000
      3   3.227522e+00   17.220000
