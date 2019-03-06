@@ -20,20 +20,22 @@ grad = zeros(size(theta));
 %
 
 
-% hypothesis (can be made more elegant to support more complicated polynomial
-% functions)
-h=theta(1)+theta(2)*X;
+% hypothesis 
+h=transpose(theta'*X');
 
 % loss function, first term
 J=1/(2*m)*sumsq(h-y);
 
 % loss, second term (regularization)
-J=J+lambda/(2*m)*theta(2)^2;
+J=J+lambda/(2*m)*sumsq(theta(2:end));
 
-%grad(1)=1/m*sum(h-y);
+% gradient
+grad(1)=1/m*sum(h-y);
 
-% grad(2)=1/m*sum((h-y) .* X)+lambda/m*theta(2);
-
+% loop through columns of X
+for i=2:size(X,2),
+	grad(i)=1/m*sum((h-y) .* X(:,i)) + lambda/m*theta(i);
+end;
 
 % =========================================================================
 
