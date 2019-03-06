@@ -20,14 +20,19 @@ grad = zeros(size(theta));
 %
 
 
+% hypothesis (can be made more elegant to support more complicated polynomial
+% functions)
+h=theta(1)+theta(2)*X;
 
+% loss function, first term
+J=1/(2*m)*sumsq(h-y);
 
+% loss, second term (regularization)
+J=J+lambda/(2*m)*theta(2)^2;
 
+%grad(1)=1/m*sum(h-y);
 
-
-
-
-
+% grad(2)=1/m*sum((h-y) .* X)+lambda/m*theta(2);
 
 
 % =========================================================================
