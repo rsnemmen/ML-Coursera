@@ -55,13 +55,13 @@ error_val   = zeros(m, 1);
 
 for i=1:m,
 	% learn theta with whatever lambda was provided
-	[theta] = trainLinearReg([ones(m, 1) X(1:i,:)], y(1:i), lambda);
+	[theta] = trainLinearReg(X(1:i,:), y(1:i), lambda);
 
 	% get training error with lambda=0
-	error_train(i) = linearRegCostFunction([ones(m, 1) X(1:i,:)], y(1:i), theta, 0);
+	error_train(i) = linearRegCostFunction(X(1:i,:), y(1:i), theta, 0);
 
 	% get CV error with lambda=0, **applied to entire CV dataset**
-	error_val(i)=linearRegCostFunction([ones(m, 1) Xval], yval, theta, 0);
+	error_val(i)=linearRegCostFunction(Xval, yval, theta, 0);
 end;
 
 
