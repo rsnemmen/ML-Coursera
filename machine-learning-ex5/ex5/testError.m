@@ -8,9 +8,9 @@ function [error_test] = ...
 
 
 %%%%%% finds value of lambda which minimizes CV error
-[temp, i] = min(error_val);
+[temp, imin] = min(error_val);
 
-fprintf('Best value of lambda = %f)\n', lambda_vec(i));
+fprintf('Best value of lambda = %f)\n', lambda_vec(imin));
 
 
 
@@ -26,8 +26,11 @@ for i = 1:length(lambda_vec),
 end;
 
 
-%%%%%% "best" value of test error
-fprintf('test dataset error = %f)\n', error_test(i));
+%%%%%% min value of test error
+error_test_min = min(error_test);
+fprintf('min(test error) = %f)\n', error_test_min);
+
+fprintf('test error for best lambda = %f)\n', error_test(imin));
 
 
 

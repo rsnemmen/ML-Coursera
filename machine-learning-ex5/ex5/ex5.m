@@ -225,7 +225,7 @@ pause;
 %  lambda on a validation set. You will then use this to select the
 %  "best" lambda value.
 %
-[error_test] = testError(X, y, Xtest, ytest, lambda_vec, error_val);
+[error_test] = testError(X_poly, y, X_poly_test, ytest, lambda_vec, error_val);
 
 % plot curves from before also showing error_test
 close all;
