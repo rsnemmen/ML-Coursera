@@ -218,3 +218,18 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+%% =========== Part 9: Validation for Selecting Lambda =============
+%  You will now implement validationCurve to test various values of 
+%  lambda on a validation set. You will then use this to select the
+%  "best" lambda value.
+%
+[error_test] = testError(X, y, Xtest, ytest, lambda_vec, error_val);
+
+% plot curves from before also showing error_test
+close all;
+plot(lambda_vec, error_train, lambda_vec, error_val, lambda_vec, error_test);
+legend('Train', 'Cross Validation', 'Test');
+xlabel('lambda');
+ylabel('Error');
