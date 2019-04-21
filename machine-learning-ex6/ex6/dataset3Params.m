@@ -23,7 +23,25 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+grid of C and sigma
 
+loop over C and sigma
+
+fit model to training data
+
+compute error val
+
+find C,sigma for which min(error_val)
+
+
+
+
+
+% returns the predictions on the cross validation set.
+predictions = svmPredict(model, Xval);
+
+% compute the prediction error using 
+mean(double(predictions ~= yval));
 
 
 
