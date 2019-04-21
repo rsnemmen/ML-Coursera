@@ -97,9 +97,24 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
-    is str{i} in vocabList?
 
-    if yes, then word_indices.append(i)
+    % PSEUDOCODE
+    % • is str{i} in vocabList?
+    % • if yes, then word_indices.append(i)
+
+
+
+    % goes through str
+    for i=1:length(str),
+        % checks if str is in vocabList
+        for j=1:length(vocabList),
+            if strcmp(str{i}, vocabList{j}),
+                % adds index 
+                word_indices=[word_indices; j];
+                break;
+            end;
+        end;
+    end;
 
 
 
