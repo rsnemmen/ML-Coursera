@@ -104,15 +104,12 @@ while ~isempty(email_contents)
 
 
 
-    % goes through str
-    for i=1:length(str),
-        % checks if str is in vocabList
-        for j=1:length(vocabList),
-            if strcmp(str{i}, vocabList{j}),
-                % adds index 
-                word_indices=[word_indices; j];
-                break;
-            end;
+    % checks if str is in vocabList
+    for j=1:length(vocabList),
+        if strcmp(str, vocabList{j}),
+            % adds index 
+            word_indices=[word_indices; j];
+            break;
         end;
     end;
 
