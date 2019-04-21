@@ -1,5 +1,5 @@
 function word_indices = processEmail(email_contents)
-%PROCESSEMAIL preprocesses a the body of an email and
+%PROCESSEMAIL preprocesses the body of an email and
 %returns a list of word_indices 
 %   word_indices = PROCESSEMAIL(email_contents) preprocesses 
 %   the body of an email and returns a list of indices of the 
@@ -97,8 +97,9 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
+    is str{i} in vocabList?
 
-
+    if yes, then word_indices.append(i)
 
 
 
