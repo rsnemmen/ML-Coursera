@@ -27,7 +27,15 @@ centroids = zeros(K, n);
 %
 
 
+% Go over every centroid and compute mean of all points that
+% belong to it. 
+for i=1:K,
+	% get points associated with centroid
+	pts=X(idx==i,:);
 
+	% mean of the data points assigned to centroid i
+	centroids(i, :)=mean(pts);
+end;
 
 
 
