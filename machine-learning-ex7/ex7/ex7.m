@@ -43,7 +43,7 @@ fprintf('Closest centroids for the first 3 examples: \n')
 fprintf(' %d', idx(1:3));
 fprintf('\n(the closest centroids should be 1, 3, 2 respectively)\n');
 
-fprintf('Program paused. Press enter to continue.\n');
+input('Program paused. Press enter to continue.\n');
 %pause;
 
 %% ===================== Part 2: Compute Means =========================
@@ -62,7 +62,7 @@ fprintf('   [ 2.428301 3.157924 ]\n');
 fprintf('   [ 5.813503 2.633656 ]\n');
 fprintf('   [ 7.119387 3.616684 ]\n\n');
 
-fprintf('Program paused. Press enter to continue.\n');
+input('Program paused. Press enter to continue.\n');
 %pause;
 
 
@@ -92,8 +92,8 @@ initial_centroids = [3 3; 6 2; 8 5];
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters, true);
 fprintf('\nK-Means Done.\n\n');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+input('Program paused. Press enter to continue.\n');
+%pause;
 
 %% ============= Part 4: K-Means Clustering on Pixels ===============
 %  In this exercise, you will use K-Means to compress an image. To do this,
@@ -134,8 +134,8 @@ initial_centroids = kMeansInitCentroids(X, K);
 % Run K-Means
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters);
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+input('Program paused. Press enter to continue.\n');
+%pause;
 
 
 %% ================= Part 5: Image Compression ======================
@@ -169,6 +169,6 @@ imagesc(X_recovered)
 title(sprintf('Compressed, with %d colors.', K));
 
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+input('Program paused. Press enter to continue.\n');
+%pause;
 
