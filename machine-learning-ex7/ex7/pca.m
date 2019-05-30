@@ -20,9 +20,11 @@ S = zeros(n);
 %       number of examples).
 %
 
+% coveriance matrix
+Sigma=1/m*X'*X;
 
-
-
+% principal components
+[U, S, V] = svd(Sigma);
 
 
 
