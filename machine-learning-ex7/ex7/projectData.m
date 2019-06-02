@@ -18,8 +18,13 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
+% so this is basically a change of basis
 
+% grabs K PCs
+Ured = U(:, 1:K); 
 
+% scalar product of examples with PC1
+Z=X*Ured;
 
 % =============================================================
 

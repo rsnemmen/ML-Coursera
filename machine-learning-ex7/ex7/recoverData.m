@@ -21,6 +21,11 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               Notice that U(j, 1:K) is a row vector.
 %               
 
+% grabs K PCs
+Ured = U(:, 1:K); 
+
+% scalar product of examples with PC1
+X_rec=Z*Ured';
 
 
 % =============================================================

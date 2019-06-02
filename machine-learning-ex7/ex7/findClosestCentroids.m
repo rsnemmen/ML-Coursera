@@ -30,11 +30,13 @@ for i=1:m,
 	% distance to each centroid from the point
 	distances=zeros(K, 1);
 
+	% loop over centroids
 	for j=1:K,
 		distances(j)=(X(i,1)-centroids(j,1))^2+(X(i,2)-centroids(j,2))^2;
 	end;
 
-	% gets lowest distance
+	% gets lowest distance, which defines the centroid associated with the 
+	% point
 	[t, idx(i)] = min(distances);
 end;
 
